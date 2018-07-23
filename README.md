@@ -29,3 +29,7 @@ This is a sample on how to get system status information. Please supply your FQD
     }
 
     main();
+
+# Samples
+
+For samples please refer to https://github.com/sherlock1982/3cx-api-samples
