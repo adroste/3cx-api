@@ -1,12 +1,14 @@
+import {NumberFilterType, CallState, DateRangeType} from '../reports';
+
 export interface ICallLogsParameters {
     TimeZoneName: string;
-    callState: string;
-    dateRangeType: string;
+    callState: CallState;
+    dateRangeType: DateRangeType;
     fromFilter?: string;
-    fromFilterType: string;
+    fromFilterType: NumberFilterType;
     numberOfRows: number;
     searchFilter?: string;
     startRow: number;
     toFilter?: string;
-    toFilterType: string;
+    toFilterType: NumberFilterType;
 }
