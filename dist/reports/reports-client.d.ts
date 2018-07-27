@@ -2,6 +2,7 @@ import { IHttpClient, IResponse } from '../http-client';
 import { IListResponse } from '../list-response';
 import { IExistingReport } from './existing-report';
 import { IReport } from './report';
+import { IClearCallLog } from "../call-logs/clear-call-log";
 export declare class ReportsClient {
     private readonly httpClient;
     constructor(httpClient: IHttpClient);
@@ -57,4 +58,10 @@ export declare class ReportsClient {
      * @returns {Promise<string>}
      */
     scheduleReport(report: Partial<IReport>): Promise<string>;
+    /**
+     * POST Clear Call Logs
+     * @param {IClearCallLog}
+     * returns {Promise<Number>}
+     */
+    clearCallLog(clearLog: IClearCallLog): Promise<number>;
 }

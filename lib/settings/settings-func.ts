@@ -14,9 +14,9 @@ import {ICDR} from './cdr';
 import {ITimezoneOfficeHours} from './timezone-and-office-hours';
 import {IConferencing} from './conferencing';
 import {I3CXClient} from './tcx-client';
-import {IServerSideCRMIntegration, IClientSideCRMIntegration} from './crm';
+import {IClientSideCRMIntegration, IServerSideCRMIntegration} from './crm';
 import {IParameters} from './paramaters';
-import {IPBX, IEmergencyNumber} from './pbx';
+import {IEmergencyNumber, IPBX} from './pbx';
 import {ISecurity} from './security';
 import {IVoicemail} from './voicemail';
 import {IHotelModule} from './hotel-module';
@@ -119,7 +119,7 @@ export class SettingsClient {
      * @returns {Promise<string>}
      */
     public async deleteServerSideCRM(crmName: string) {
-        const result = await this.httpClient.post<{deleted: boolean}>(`/api/CrmList/deleteServerCrm?crmName=${crmName}`, {});
+        const result = await this.httpClient.post<{ deleted: boolean }>(`/api/CrmList/deleteServerCrm?crmName=${crmName}`, {});
         return result.data;
     }
 

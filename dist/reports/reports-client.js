@@ -90,5 +90,16 @@ class ReportsClient {
             return (yield this.httpClient.post('/api/Reports/ScheduleReport', report)).data;
         });
     }
+    /**
+     * POST Clear Call Logs
+     * @param {IClearCallLog}
+     * returns {Promise<Number>}
+     */
+    clearCallLog(clearLog) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const response = yield this.httpClient.post(`/api/CallLog/ClearCallLogs`, clearLog);
+            return response.data.deletedRows;
+        });
+    }
 }
 exports.ReportsClient = ReportsClient;

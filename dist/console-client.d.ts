@@ -16,7 +16,7 @@ import { IFaxExtension } from './fax-extension';
 import { IFxsDect } from './fxs-dect';
 import { IBackup } from './backup/backup';
 import { ICallLogs } from './call-logs/call-logs';
-import { IRecordings, IRecordingParameters } from './recording';
+import { IRecordingParameters, IRecordings } from './recording';
 import { ICallLogsParameters } from './call-logs/call-log-parameters';
 import { INewBackup } from './backup/newBackup';
 import { IRingGroup } from './ring-group';

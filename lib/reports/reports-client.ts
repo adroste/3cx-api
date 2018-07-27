@@ -2,6 +2,7 @@ import {IHttpClient, IResponse} from '../http-client';
 import {IListResponse} from '../list-response';
 import {IExistingReport} from './existing-report';
 import {IReport} from './report';
+import {IClearCallLog, IDeletedRows} from "../call-logs/clear-call-log";
 
 export class ReportsClient {
     constructor(private readonly httpClient: IHttpClient) {
@@ -84,5 +85,15 @@ export class ReportsClient {
      */
     public async scheduleReport(report: Partial<IReport>) {
         return (await this.httpClient.post<string>('/api/Reports/ScheduleReport', report)).data;
+    }
+
+    /**
+     * POST Clear Call Logs
+     * @param {IClearCallLog}
+     * returns {Promise<Number>}
+     */
+    public async clearCallLog(clearLog: IClearCallLog) {
+        const response = await this.httpClient.post<IDeletedRows>(`/api/CallLog/ClearCallLogs`, clearLog);
+        return response.data.deletedRows;
     }
 }
