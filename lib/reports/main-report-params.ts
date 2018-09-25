@@ -21,6 +21,7 @@ export type ReportType =
     'QueueAnsweredCallsByWaitTime' |
     'CallLogs' |
     'ExportedCallLogs' |
+    'TrunkDid' |
 
     /// <summary>
     /// User Activity IReport
