@@ -214,7 +214,7 @@ export class ConsoleClient {
      * Post Delete Backup List
      * @param {string}
      */
-    public async deleteBackup(id: string) {
+    public async deleteBackup(id: number) {
         await this.httpClient.post(`/api/BackupAndRestoreList/delete`, {Ids: [id]});
     }
 
@@ -233,7 +233,7 @@ export class ConsoleClient {
      * Delete Chat
      * @param {string}
      */
-    public async deleteChat(id: string) {
+    public async deleteChat(id: number) {
         await this.httpClient.post(`/api/Chat/delete`, [id]);
     }
 

@@ -2,7 +2,7 @@ import {IHttpClient, IResponse} from '../http-client';
 import {IListResponse} from '../list-response';
 import {IExistingReport} from './existing-report';
 import {IReport} from './report';
-import {IClearCallLog, IDeletedRows} from "../call-logs/clear-call-log";
+import {IClearCallLog, IDeletedRows} from '../call-logs/clear-call-log';
 
 export class ReportsClient {
     constructor(private readonly httpClient: IHttpClient) {

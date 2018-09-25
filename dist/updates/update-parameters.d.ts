@@ -12,4 +12,5 @@ export interface IUpdateParameters {
     OutOfDate: boolean;
     ServerVersion: string;
     TargetDirectory: string;
+    isSelected: boolean;
 }

@@ -14,6 +14,8 @@ export interface IMusicOnHold {
     MusicOnHold7: IItemSetType;
     MusicOnHold8: IItemSetType;
     MusicOnHold9: IItemSetType;
+    MusicOnHoldRandomize: any;
+    MusicOnHoldRandomizeAlgo: any;
     Playlists: IMusicOnHoldPlaylists;
     _str: string;
 }

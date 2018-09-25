@@ -129,7 +129,7 @@ export declare class ConsoleClient {
      * Post Delete Backup List
      * @param {string}
      */
-    deleteBackup(id: string): Promise<void>;
+    deleteBackup(id: number): Promise<void>;
     /**
      * Get Call Log List
      * @param {ICallLogsParameters}
@@ -140,7 +140,7 @@ export declare class ConsoleClient {
      * Delete Chat
      * @param {string}
      */
-    deleteChat(id: string): Promise<void>;
+    deleteChat(id: number): Promise<void>;
     /**
      * POST Download Update
      * @param {IUpdateParameters}

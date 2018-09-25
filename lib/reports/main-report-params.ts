@@ -35,7 +35,8 @@ export type ReportType =
     /// <summary>
     /// Average Waiting Time IReport
     /// </summary>
-    'AverageWaitingTime';
+    'AverageWaitingTime' |
+    'TrunkDid';
 
 export interface IMainReportParams {
     ReportName: string;
