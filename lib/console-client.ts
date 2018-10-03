@@ -23,6 +23,7 @@ import {INewBackup} from './backup/newBackup';
 import {IRingGroup} from './ring-group';
 import {IUpdateParameters} from './updates/update-parameters';
 import {IUpdates} from './updates/updates';
+import {IPhoneTemplate} from './phone-templates';
 
 export class ConsoleClient {
     constructor(private readonly httpClient: IHttpClient) {
@@ -248,4 +249,12 @@ export class ConsoleClient {
         return response.data.Updates;
     }
 
+    /**
+     * Get Phone Template List
+     * @returns {Promise<IPhoneTemplate>}
+     */
+    public async getPhoneTemplatesList() {
+        const response = await this.httpClient.get<IPhoneTemplate>(`api/PhoneTemplates/getTemplatesByType`);
+        return response.data;
+    }
 }
