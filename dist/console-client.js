@@ -254,5 +254,15 @@ class ConsoleClient {
             return response.data.Updates;
         });
     }
+    /**
+     * Get Phone Template List
+     * @returns {Promise<IPhoneTemplate>}
+     */
+    getPhoneTemplatesList() {
+        return __awaiter(this, void 0, void 0, function* () {
+            const response = yield this.httpClient.get(`api/PhoneTemplates/getTemplatesByType`);
+            return response.data;
+        });
+    }
 }
 exports.ConsoleClient = ConsoleClient;

@@ -21,6 +21,7 @@ import { ICallLogsParameters } from './call-logs/call-log-parameters';
 import { INewBackup } from './backup/newBackup';
 import { IRingGroup } from './ring-group';
 import { IUpdateParameters } from './updates/update-parameters';
+import { IPhoneTemplate } from './phone-templates';
 export declare class ConsoleClient {
     private readonly httpClient;
     constructor(httpClient: IHttpClient);
@@ -147,4 +148,9 @@ export declare class ConsoleClient {
      * returns {Promise<IUpdateParameters>}
      */
     getUpdate(updates: IUpdateParameters[]): Promise<IUpdateParameters[]>;
+    /**
+     * Get Phone Template List
+     * @returns {Promise<IPhoneTemplate>}
+     */
+    getPhoneTemplatesList(): Promise<IPhoneTemplate>;
 }
