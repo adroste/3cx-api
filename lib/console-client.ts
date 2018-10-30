@@ -120,6 +120,24 @@ export class ConsoleClient {
     }
 
     /**
+     * Get Trunk Provider Countries
+     * @returns {Promise<string[]>}
+     */
+    public async getTrunkProviderCountries() {
+        const response = await this.httpClient.get<string[]>(`/api/TrunkList/providerCountries`);
+        return response.data;
+    }
+
+    /**
+     * Get Trunk Provider By Country
+     * @returns {Promise<string[]>}
+     */
+    public async getTrunkProviderByCountry(country: string) {
+        const response = await this.httpClient.get<string[]>(`api/TrunkList/providers?country=${country}`);
+        return response.data;
+    }
+
+    /**
      * Get Inbound List
      * @returns {Promise<IInboundRule>}
      */

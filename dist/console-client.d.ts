@@ -76,6 +76,16 @@ export declare class ConsoleClient {
      */
     getTrunkList(): Promise<ITrunks[]>;
     /**
+     * Get Trunk Provider Countries
+     * @returns {Promise<string[]>}
+     */
+    getTrunkProviderCountries(): Promise<string[]>;
+    /**
+     * Get Trunk Provider By Country
+     * @returns {Promise<string[]>}
+     */
+    getTrunkProviderByCountry(country: string): Promise<string[]>;
+    /**
      * Get Inbound List
      * @returns {Promise<IInboundRule>}
      */

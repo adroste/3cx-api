@@ -113,6 +113,26 @@ class ConsoleClient {
         });
     }
     /**
+     * Get Trunk Provider Countries
+     * @returns {Promise<string[]>}
+     */
+    getTrunkProviderCountries() {
+        return __awaiter(this, void 0, void 0, function* () {
+            const response = yield this.httpClient.get(`/api/TrunkList/providerCountries`);
+            return response.data;
+        });
+    }
+    /**
+     * Get Trunk Provider By Country
+     * @returns {Promise<string[]>}
+     */
+    getTrunkProviderByCountry(country) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const response = yield this.httpClient.get(`api/TrunkList/providers?country=${country}`);
+            return response.data;
+        });
+    }
+    /**
      * Get Inbound List
      * @returns {Promise<IInboundRule>}
      */
