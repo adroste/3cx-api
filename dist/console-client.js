@@ -280,7 +280,7 @@ class ConsoleClient {
      */
     getPhoneTemplatesList() {
         return __awaiter(this, void 0, void 0, function* () {
-            const response = yield this.httpClient.get(`api/PhoneTemplates/getTemplatesByType`);
+            const response = yield this.httpClient.get(`/api/PhoneTemplates/getTemplatesByType`);
             return response.data;
         });
     }

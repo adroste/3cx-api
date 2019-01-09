@@ -14,7 +14,6 @@ class DashboardClient {
     }
     /**
      * Start Firewall
-     * @param {IHttpClient} httpClient
      * @returns {Promise<IResponseFirewall>}
      */
     startFirewall() {
@@ -24,7 +23,6 @@ class DashboardClient {
     }
     /**
      * Stop Firewall
-     * @param {IHttpClient} httpClient
      * @returns {Promise<IResponseFirewall>}
      */
     stopFirewall() {
@@ -34,12 +32,21 @@ class DashboardClient {
     }
     /**
      * Get Firewall Status
-     * @param {IHttpClient} httpClient
      * @returns {Promise<IResponseFirewall>}
      */
     getFirewallStatus() {
         return __awaiter(this, void 0, void 0, function* () {
             const response = yield this.httpClient.get('/api/firewall');
+            return response.data;
+        });
+    }
+    /**
+     * Get Services Status List
+     * @returns {Promise<IServices[]>}
+     */
+    getServicesStatus() {
+        return __awaiter(this, void 0, void 0, function* () {
+            const response = yield this.httpClient.get(`/api/ServiceList`);
             return response.data;
         });
     }

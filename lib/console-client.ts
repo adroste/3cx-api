@@ -272,7 +272,8 @@ export class ConsoleClient {
      * @returns {Promise<IPhoneTemplate>}
      */
     public async getPhoneTemplatesList() {
-        const response = await this.httpClient.get<IPhoneTemplate>(`api/PhoneTemplates/getTemplatesByType`);
+        const response = await this.httpClient.get<IPhoneTemplate>(`/api/PhoneTemplates/getTemplatesByType`);
         return response.data;
     }
+
 }

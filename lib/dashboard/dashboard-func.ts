@@ -1,5 +1,7 @@
 import {IHttpClient} from '../http-client';
 import {IResponseFirewall} from './firewall';
+import {IServices} from '../services';
+import {IListResponse} from '../list-response';
 
 export class DashboardClient {
     constructor(private readonly httpClient: IHttpClient) {
@@ -7,7 +9,6 @@ export class DashboardClient {
 
     /**
      * Start Firewall
-     * @param {IHttpClient} httpClient
      * @returns {Promise<IResponseFirewall>}
      */
     public async startFirewall() {
@@ -17,7 +18,6 @@ export class DashboardClient {
 
     /**
      * Stop Firewall
-     * @param {IHttpClient} httpClient
      * @returns {Promise<IResponseFirewall>}
      */
     public async stopFirewall() {
@@ -27,11 +27,19 @@ export class DashboardClient {
 
     /**
      * Get Firewall Status
-     * @param {IHttpClient} httpClient
      * @returns {Promise<IResponseFirewall>}
      */
     public async getFirewallStatus() {
         const response = await this.httpClient.get<IResponseFirewall>('/api/firewall');
+        return response.data;
+    }
+
+    /**
+     * Get Services Status List
+     * @returns {Promise<IServices[]>}
+     */
+    public async getServicesStatus() {
+        const response = await this.httpClient.get<IServices[]>(`/api/ServiceList`);
         return response.data;
     }
 }
