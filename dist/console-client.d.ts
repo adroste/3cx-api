@@ -6,7 +6,6 @@ import { IHttpClient } from './http-client';
 import { IPhone } from './phone';
 import { IPhonebookEntry } from './phonebook/phonebook-entry';
 import { IQueue } from './queue';
-import { ISystemStatus } from './system-status';
 import { IUserInfo } from './userinfo';
 import { ITrunks } from './trunk';
 import { IOutboundRule } from './outbound-rule';
@@ -25,11 +24,6 @@ import { IPhoneTemplate } from './phone-templates';
 export declare class ConsoleClient {
     private readonly httpClient;
     constructor(httpClient: IHttpClient);
-    /**
-     * Get system status
-     * @returns {Promise<ISystemStatus>}
-     */
-    getSystemStatus(): Promise<ISystemStatus>;
     /**
      * Get extensions
      * @returns {Promise<IExtension[]>}

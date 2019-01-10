@@ -30,15 +30,6 @@ export class ConsoleClient {
     }
 
     /**
-     * Get system status
-     * @returns {Promise<ISystemStatus>}
-     */
-    public async getSystemStatus() {
-        const response = await this.httpClient.get<ISystemStatus>('/api/SystemStatus');
-        return response.data;
-    }
-
-    /**
      * Get extensions
      * @returns {Promise<IExtension[]>}
      */

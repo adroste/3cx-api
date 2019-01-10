@@ -1,6 +1,7 @@
 import { IHttpClient } from '../http-client';
 import { IResponseFirewall } from './firewall';
 import { IServices } from '../services';
+import { ISystemStatus } from '../system-status';
 export declare class DashboardClient {
     private readonly httpClient;
     constructor(httpClient: IHttpClient);
@@ -24,4 +25,9 @@ export declare class DashboardClient {
      * @returns {Promise<IServices[]>}
      */
     getServicesStatus(): Promise<IServices[]>;
+    /**
+     * Get system status
+     * @returns {Promise<ISystemStatus>}
+     */
+    getSystemStatus(): Promise<ISystemStatus>;
 }

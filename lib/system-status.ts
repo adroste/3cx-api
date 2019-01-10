@@ -1,13 +1,16 @@
 export interface ISystemStatus {
     Activated: boolean;
+    AvailableLocalIps: string;
     BackupScheduled: boolean;
     BlacklistedIpCount: number;
     CallHistoryCount: number;
     CallsActive: number;
     ChatMessagesCount: number;
     CpuUsage: number;
+    CpuUsageHistory: any;
     CurrentLocalIp: string;
     DiskUsage: number;
+    ExpirationDate?: string;
     ExtensionsRegistered: number;
     ExtensionsTotal: number;
     FQDN: string;
@@ -18,4 +21,26 @@ export interface ISystemStatus {
     HasUnregisteredSystemExtensions: boolean;
     Ip: string;
     IsSpla: boolean;
+    LastBackupDateTime?: string;
+    LicenseKey: string;
+    LocalIpValid: boolean;
+    MaintenanceExpiresAt: string;
+    MaxSimCalls: number;
+    MaxSimMeetingParticipants: number;
+    MemoryUsage: number;
+    OutboundRules: number;
+    OwnPush: boolean;
+    PhysicalMemoryUsage: number;
+    ProductCode: string;
+    ResellerName?: string;
+    Support: boolean;
+    TotalDiskSpace: number;
+    TotalPhysicalMemory: number;
+    TotalVirtualMemory: number;
+    TrunksRegistered: number;
+    TrunksTotal: number;
+    Version: string;
+    WebMeetingBestMCU: string;
+    WebMeetingFQDN: string;
 }
+

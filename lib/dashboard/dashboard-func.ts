@@ -1,7 +1,7 @@
 import {IHttpClient} from '../http-client';
 import {IResponseFirewall} from './firewall';
 import {IServices} from '../services';
-import {IListResponse} from '../list-response';
+import {ISystemStatus} from '../system-status';
 
 export class DashboardClient {
     constructor(private readonly httpClient: IHttpClient) {
@@ -14,7 +14,6 @@ export class DashboardClient {
     public async startFirewall() {
         return (await this.httpClient.post<IResponseFirewall>('/api/firewall/start')).data;
     }
-
 
     /**
      * Stop Firewall
@@ -40,6 +39,15 @@ export class DashboardClient {
      */
     public async getServicesStatus() {
         const response = await this.httpClient.get<IServices[]>(`/api/ServiceList`);
+        return response.data;
+    }
+
+    /**
+     * Get system status
+     * @returns {Promise<ISystemStatus>}
+     */
+    public async getSystemStatus() {
+        const response = await this.httpClient.get<ISystemStatus>('/api/SystemStatus');
         return response.data;
     }
 }

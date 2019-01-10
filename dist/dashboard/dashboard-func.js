@@ -50,5 +50,15 @@ class DashboardClient {
             return response.data;
         });
     }
+    /**
+     * Get system status
+     * @returns {Promise<ISystemStatus>}
+     */
+    getSystemStatus() {
+        return __awaiter(this, void 0, void 0, function* () {
+            const response = yield this.httpClient.get('/api/SystemStatus');
+            return response.data;
+        });
+    }
 }
 exports.DashboardClient = DashboardClient;
