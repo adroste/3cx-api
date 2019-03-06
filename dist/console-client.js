@@ -23,6 +23,15 @@ class ConsoleClient {
         });
     }
     /**
+     * Delete extension by ID
+     * @param {string}
+     */
+    deleteExtension(ids) {
+        return __awaiter(this, void 0, void 0, function* () {
+            yield this.httpClient.post(`/api/ExtensionList/delete`, { Ids: [ids] });
+        });
+    }
+    /**
      * Get faxes
      * @returns {Promise<IFax[]>}
      */
@@ -150,6 +159,15 @@ class ConsoleClient {
         return __awaiter(this, void 0, void 0, function* () {
             const response = yield this.httpClient.get(`/api/IVRList`);
             return response.data.list;
+        });
+    }
+    /**
+     * Delete IVR By Id
+     * @param {string}
+     */
+    deleteIVR(ids) {
+        return __awaiter(this, void 0, void 0, function* () {
+            yield this.httpClient.post(`/api/IVRList/delete`, { Ids: [ids] });
         });
     }
     /**

@@ -30,6 +30,11 @@ export declare class ConsoleClient {
      */
     getExtensionList(): Promise<IExtension[]>;
     /**
+     * Delete extension by ID
+     * @param {string}
+     */
+    deleteExtension(ids: string): Promise<void>;
+    /**
      * Get faxes
      * @returns {Promise<IFax[]>}
      */
@@ -94,6 +99,11 @@ export declare class ConsoleClient {
      * @returns {Promise<IIVR>}
      */
     getIVRList(): Promise<IIVR[]>;
+    /**
+     * Delete IVR By Id
+     * @param {string}
+     */
+    deleteIVR(ids: string): Promise<void>;
     /**
      * Get Ring Group List
      * @returns {Promise<IRingGroup>}

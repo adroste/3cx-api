@@ -39,6 +39,15 @@ export class ConsoleClient {
     }
 
     /**
+     * Delete extension by ID
+     * @param {string}
+     */
+    public async deleteExtension(ids: string) {
+        await this.httpClient.post(`/api/ExtensionList/delete`, {Ids: [ids]});
+    }
+
+
+    /**
      * Get faxes
      * @returns {Promise<IFax[]>}
      */
@@ -153,6 +162,14 @@ export class ConsoleClient {
     public async getIVRList() {
         const response = await this.httpClient.get<IListResponse<IIVR>>(`/api/IVRList`);
         return response.data.list;
+    }
+
+    /**
+     * Delete IVR By Id
+     * @param {string}
+     */
+    public async deleteIVR(ids: string) {
+        await this.httpClient.post(`/api/IVRList/delete`, {Ids: [ids]});
     }
 
     /**
