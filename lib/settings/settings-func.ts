@@ -243,9 +243,17 @@ export class SettingsClient {
      * Get Parameters list
      * @returns {Promise<IListResponse<IParameters>>}
      */
-    public async getParametersSettings() {
+    public async getParametersList() {
         const result = await this.httpClient.get<IListResponse<IParameters>>(`/api/CustomParametersList`);
         return result.data.list;
+    }
+
+    /**
+     * Delete Parameter by Name
+     * @param {string}
+     */
+    public async deleteParameter(parameterName: string) {
+        await this.httpClient.post(`/api/CustomParametersList/delete`, {name: parameterName});
     }
 
     /**

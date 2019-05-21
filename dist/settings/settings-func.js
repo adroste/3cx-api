@@ -246,10 +246,19 @@ class SettingsClient {
      * Get Parameters list
      * @returns {Promise<IListResponse<IParameters>>}
      */
-    getParametersSettings() {
+    getParametersList() {
         return __awaiter(this, void 0, void 0, function* () {
             const result = yield this.httpClient.get(`/api/CustomParametersList`);
             return result.data.list;
+        });
+    }
+    /**
+     * Delete Parameter by Name
+     * @param {string}
+     */
+    deleteParameter(parameterName) {
+        return __awaiter(this, void 0, void 0, function* () {
+            yield this.httpClient.post(`/api/CustomParametersList/delete`, { name: parameterName });
         });
     }
     /**

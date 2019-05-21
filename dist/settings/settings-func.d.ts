@@ -153,7 +153,12 @@ export declare class SettingsClient {
      * Get Parameters list
      * @returns {Promise<IListResponse<IParameters>>}
      */
-    getParametersSettings(): Promise<IParameters[]>;
+    getParametersList(): Promise<IParameters[]>;
+    /**
+     * Delete Parameter by Name
+     * @param {string}
+     */
+    deleteParameter(parameterName: string): Promise<void>;
     /**
      * Post PBX Configurations
      * @returns {Promise<IActiveObjectResponse<IPBX>>}
