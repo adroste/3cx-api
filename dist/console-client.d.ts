@@ -21,6 +21,7 @@ import { INewBackup } from './backup/newBackup';
 import { IRingGroup } from './ring-group';
 import { IUpdateParameters } from './updates/update-parameters';
 import { IPhoneTemplate } from './phone-templates';
+import { ICallFlow } from './call-flow';
 export declare class ConsoleClient {
     private readonly httpClient;
     constructor(httpClient: IHttpClient);
@@ -167,4 +168,14 @@ export declare class ConsoleClient {
      * @returns {Promise<IPhoneTemplate>}
      */
     getPhoneTemplatesList(): Promise<IPhoneTemplate>;
+    /**
+     * Get Call Flow List List
+     * @returns {Promise<ICallFlow>}
+     */
+    getCallFlowList(): Promise<ICallFlow[]>;
+    /**
+     * POST Delete Call Flow
+     * @param {number}
+     */
+    deleteCallFlow(id: number): Promise<void>;
 }

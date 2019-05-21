@@ -257,6 +257,22 @@ export class SettingsClient {
     }
 
     /**
+     * Add Parameter
+     * @param {IParameters}
+     */
+    public async addParameter(newParameter: IParameters) {
+        await this.httpClient.post(`/api/CustomParametersList/new`, newParameter);
+    }
+
+    /**
+     * Edit Parameter
+     * @param {IParameters}
+     */
+    public async editParameter(newParameter: IParameters) {
+        await this.httpClient.post(`/api/CustomParametersList`, newParameter);
+    }
+
+    /**
      * Post PBX Configurations
      * @returns {Promise<IActiveObjectResponse<IPBX>>}
      */

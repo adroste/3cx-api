@@ -262,6 +262,24 @@ class SettingsClient {
         });
     }
     /**
+     * Add Parameter
+     * @param {IParameters}
+     */
+    addParameter(newParameter) {
+        return __awaiter(this, void 0, void 0, function* () {
+            yield this.httpClient.post(`/api/CustomParametersList/new`, newParameter);
+        });
+    }
+    /**
+     * Edit Parameter
+     * @param {IParameters}
+     */
+    editParameter(newParameter) {
+        return __awaiter(this, void 0, void 0, function* () {
+            yield this.httpClient.post(`/api/CustomParametersList`, newParameter);
+        });
+    }
+    /**
      * Post PBX Configurations
      * @returns {Promise<IActiveObjectResponse<IPBX>>}
      */

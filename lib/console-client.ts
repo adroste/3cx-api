@@ -24,6 +24,7 @@ import {IRingGroup} from './ring-group';
 import {IUpdateParameters} from './updates/update-parameters';
 import {IUpdates} from './updates/updates';
 import {IPhoneTemplate} from './phone-templates';
+import {ICallFlow} from './call-flow';
 
 export class ConsoleClient {
     constructor(private readonly httpClient: IHttpClient) {
@@ -284,4 +285,20 @@ export class ConsoleClient {
         return response.data;
     }
 
+    /**
+     * Get Call Flow List List
+     * @returns {Promise<ICallFlow>}
+     */
+    public async getCallFlowList() {
+        const response = await this.httpClient.get<IListResponse<ICallFlow>>(`/api/CallFlowApps`);
+        return response.data.list;
+    }
+
+    /**
+     * POST Delete Call Flow
+     * @param {number}
+     */
+    public async deleteCallFlow(id: number) {
+        await this.httpClient.post(`/api/CallFlowApps/delete`, {Ids: [id]});
+    }
 }

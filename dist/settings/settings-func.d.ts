@@ -160,6 +160,16 @@ export declare class SettingsClient {
      */
     deleteParameter(parameterName: string): Promise<void>;
     /**
+     * Add Parameter
+     * @param {IParameters}
+     */
+    addParameter(newParameter: IParameters): Promise<void>;
+    /**
+     * Edit Parameter
+     * @param {IParameters}
+     */
+    editParameter(newParameter: IParameters): Promise<void>;
+    /**
      * Post PBX Configurations
      * @returns {Promise<IActiveObjectResponse<IPBX>>}
      */

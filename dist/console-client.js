@@ -292,5 +292,24 @@ class ConsoleClient {
             return response.data;
         });
     }
+    /**
+     * Get Call Flow List List
+     * @returns {Promise<ICallFlow>}
+     */
+    getCallFlowList() {
+        return __awaiter(this, void 0, void 0, function* () {
+            const response = yield this.httpClient.get(`/api/CallFlowApps`);
+            return response.data.list;
+        });
+    }
+    /**
+     * POST Delete Call Flow
+     * @param {number}
+     */
+    deleteCallFlow(id) {
+        return __awaiter(this, void 0, void 0, function* () {
+            yield this.httpClient.post(`/api/CallFlowApps/delete`, { Ids: [id] });
+        });
+    }
 }
 exports.ConsoleClient = ConsoleClient;
