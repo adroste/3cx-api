@@ -170,6 +170,17 @@ export declare class SettingsClient {
      */
     editParameter(newParameter: IParameters): Promise<void>;
     /**
+     * Get DN Property list
+     * @param {string}
+     * @returns {Promise<IListResponse<IParameters>>}
+     */
+    getDNPropertyList(value: string): Promise<IParameters[]>;
+    /**
+     * Edit DN Property list
+     * @param {string}
+     */
+    editDNProperty(newParameter: IParameters): Promise<void>;
+    /**
      * Post PBX Configurations
      * @returns {Promise<IActiveObjectResponse<IPBX>>}
      */

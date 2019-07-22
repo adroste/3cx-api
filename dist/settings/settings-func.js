@@ -280,6 +280,26 @@ class SettingsClient {
         });
     }
     /**
+     * Get DN Property list
+     * @param {string}
+     * @returns {Promise<IListResponse<IParameters>>}
+     */
+    getDNPropertyList(value) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const result = yield this.httpClient.get(`/api/dnProperties?Number=${value}`);
+            return result.data.list;
+        });
+    }
+    /**
+     * Edit DN Property list
+     * @param {string}
+     */
+    editDNProperty(newParameter) {
+        return __awaiter(this, void 0, void 0, function* () {
+            yield this.httpClient.post(`/api/dnProperties`, newParameter);
+        });
+    }
+    /**
      * Post PBX Configurations
      * @returns {Promise<IActiveObjectResponse<IPBX>>}
      */

@@ -273,6 +273,23 @@ export class SettingsClient {
     }
 
     /**
+     * Get DN Property list
+     * @param {string}
+     * @returns {Promise<IListResponse<IParameters>>}
+     */
+    public async getDNPropertyList(value: string) {
+        const result = await this.httpClient.get<IListResponse<IParameters>>(`/api/dnProperties?Number=${value}`);
+        return result.data.list;
+    }
+
+    /**
+     * Edit DN Property list
+     * @param {string}
+     */
+    public async editDNProperty(newParameter: IParameters) {
+        await this.httpClient.post(`/api/dnProperties`, newParameter);
+    }
+    /**
      * Post PBX Configurations
      * @returns {Promise<IActiveObjectResponse<IPBX>>}
      */
