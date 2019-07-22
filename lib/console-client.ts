@@ -7,7 +7,6 @@ import {IListResponse} from './list-response';
 import {IPhone} from './phone';
 import {IPhonebookEntry} from './phonebook/phonebook-entry';
 import {IQueue} from './queue';
-import {ISystemStatus} from './system-status';
 import {IUserInfo} from './userinfo';
 import {ITrunks} from './trunk';
 import {IOutboundRule} from './outbound-rule';
@@ -118,6 +117,14 @@ export class ConsoleClient {
     public async getTrunkList() {
         const response = await this.httpClient.get<IListResponse<ITrunks>>(`/api/TrunkList`);
         return response.data.list;
+    }
+
+    /**
+     * Delete Trunk by ID
+     * @param {string}
+     */
+    public async deleteTrunk(ids: string) {
+        await this.httpClient.post(`/api/TrunkList/delete`, {Ids: [ids]});
     }
 
     /**

@@ -112,6 +112,15 @@ class ConsoleClient {
         });
     }
     /**
+     * Delete Trunk by ID
+     * @param {string}
+     */
+    deleteTrunk(ids) {
+        return __awaiter(this, void 0, void 0, function* () {
+            yield this.httpClient.post(`/api/TrunkList/delete`, { Ids: [ids] });
+        });
+    }
+    /**
      * Get Trunk Provider Countries
      * @returns {Promise<string[]>}
      */

@@ -76,6 +76,11 @@ export declare class ConsoleClient {
      */
     getTrunkList(): Promise<ITrunks[]>;
     /**
+     * Delete Trunk by ID
+     * @param {string}
+     */
+    deleteTrunk(ids: string): Promise<void>;
+    /**
      * Get Trunk Provider Countries
      * @returns {Promise<string[]>}
      */
