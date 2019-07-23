@@ -78,9 +78,17 @@ export class ConsoleClient {
      * Get phonebook
      * @returns {Promise<IPhonebookEntry[]>}
      */
-    public async getPhonebookList() {
+    public async getContactList() {
         const response = await this.httpClient.get<IListResponse<IPhonebookEntry>>('/api/PhoneBookEntryList');
         return response.data.list;
+    }
+
+    /**
+     * Delete Contact By ID
+     * @param {string}
+     */
+    public async deleteContact(ids: string) {
+        await this.httpClient.post(`/api/PhoneBookEntryList/delete`, {Ids: [ids]});
     }
 
     /**

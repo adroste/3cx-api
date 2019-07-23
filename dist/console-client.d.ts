@@ -54,7 +54,12 @@ export declare class ConsoleClient {
      * Get phonebook
      * @returns {Promise<IPhonebookEntry[]>}
      */
-    getPhonebookList(): Promise<IPhonebookEntry[]>;
+    getContactList(): Promise<IPhonebookEntry[]>;
+    /**
+     * Delete Contact By ID
+     * @param {string}
+     */
+    deleteContact(ids: string): Promise<void>;
     /**
      * Get phones
      * @returns {Promise<IPhone[]>}

@@ -65,10 +65,19 @@ class ConsoleClient {
      * Get phonebook
      * @returns {Promise<IPhonebookEntry[]>}
      */
-    getPhonebookList() {
+    getContactList() {
         return __awaiter(this, void 0, void 0, function* () {
             const response = yield this.httpClient.get('/api/PhoneBookEntryList');
             return response.data.list;
+        });
+    }
+    /**
+     * Delete Contact By ID
+     * @param {string}
+     */
+    deleteContact(ids) {
+        return __awaiter(this, void 0, void 0, function* () {
+            yield this.httpClient.post(`/api/PhoneBookEntryList/delete`, { Ids: [ids] });
         });
     }
     /**
