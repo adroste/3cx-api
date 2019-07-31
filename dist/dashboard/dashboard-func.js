@@ -60,5 +60,45 @@ class DashboardClient {
             return response.data;
         });
     }
+    /**
+     * Get activity Log Level
+     * @returns {Promise<number>}
+     */
+    getActivityLogLevel() {
+        return __awaiter(this, void 0, void 0, function* () {
+            const response = yield this.httpClient.get('/api/ActivityLog/getLogLevel');
+            return response.data;
+        });
+    }
+    /**
+     * Get activity Keep Logs
+     * @returns {Promise<boolean>}
+     */
+    getActivityKeepLogs() {
+        return __awaiter(this, void 0, void 0, function* () {
+            const response = yield this.httpClient.get('/api/ActivityLog/getKeepLogs');
+            return response.data;
+        });
+    }
+    /**
+     * Get activity Keep Log Days
+     * @returns {Promise<number>}
+     */
+    getActivityKeepLogDays() {
+        return __awaiter(this, void 0, void 0, function* () {
+            const response = yield this.httpClient.get('/api/ActivityLog/getKeepDays');
+            return response.data;
+        });
+    }
+    /**
+     * Get activity Logs with range
+     * @returns {Promise<List<IActivityLogs>>}
+     */
+    getActivityLogs(count, from) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const response = yield this.httpClient.get(`/api/ActivityLog?count=${count}&startFrom=${from}`);
+            return response.data.list;
+        });
+    }
 }
 exports.DashboardClient = DashboardClient;

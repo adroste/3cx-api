@@ -27,6 +27,7 @@ import {ISystemPrompts} from './system-prompts/system-prompts';
 import {ISystemPromptSets} from './system-prompts/system-promptsets';
 import {IPrompts} from './system-prompts/prompts';
 import {IUpdateParameters, IUpdates} from '../updates';
+import {IWebmeetingToken} from './webmeeting-token';
 
 export class SettingsClient {
     constructor(private readonly httpClient: IHttpClient) {
@@ -398,6 +399,23 @@ export class SettingsClient {
         return response.data.ActiveObject;
     }
 
+    /**
+     * Get Webmeeting Token
+     * @returns {Promise<IWebmeetingToken>}
+     */
+    public async getWebmeetingToken() {
+        const response = await this.httpClient.post<IWebmeetingToken>(`/api/webmeeting/get`);
+        return response.data;
+    }
+
+    /**
+     * Generate Wordpress Settings
+     * @returns {Promise<IWebmeetingToken>}
+     */
+    public async generateWebmeetingToken() {
+        const response = await this.httpClient.post<IWebmeetingToken>(`/api/webmeeting/generate`);
+        return response.data;
+    }
 
 }
 

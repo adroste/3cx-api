@@ -420,5 +420,25 @@ class SettingsClient {
             return response.data.ActiveObject;
         });
     }
+    /**
+     * Get Webmeeting Token
+     * @returns {Promise<IWebmeetingToken>}
+     */
+    getWebmeetingToken() {
+        return __awaiter(this, void 0, void 0, function* () {
+            const response = yield this.httpClient.post(`/api/webmeeting/get`);
+            return response.data;
+        });
+    }
+    /**
+     * Generate Wordpress Settings
+     * @returns {Promise<IWebmeetingToken>}
+     */
+    generateWebmeetingToken() {
+        return __awaiter(this, void 0, void 0, function* () {
+            const response = yield this.httpClient.post(`/api/webmeeting/generate`);
+            return response.data;
+        });
+    }
 }
 exports.SettingsClient = SettingsClient;

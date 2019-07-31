@@ -25,6 +25,7 @@ import { IResponseSaveTemplate } from './templates/response-save-template';
 import { ISystemPromptSets } from './system-prompts/system-promptsets';
 import { IPrompts } from './system-prompts/prompts';
 import { IUpdateParameters, IUpdates } from '../updates';
+import { IWebmeetingToken } from './webmeeting-token';
 export declare class SettingsClient {
     private readonly httpClient;
     constructor(httpClient: IHttpClient);
@@ -242,4 +243,14 @@ export declare class SettingsClient {
      * @returns {Promise<IActiveObjectResponse<IHotelModule>>}
      */
     getHotelModuleSettings(): Promise<IHotelModule>;
+    /**
+     * Get Webmeeting Token
+     * @returns {Promise<IWebmeetingToken>}
+     */
+    getWebmeetingToken(): Promise<IWebmeetingToken>;
+    /**
+     * Generate Wordpress Settings
+     * @returns {Promise<IWebmeetingToken>}
+     */
+    generateWebmeetingToken(): Promise<IWebmeetingToken>;
 }
