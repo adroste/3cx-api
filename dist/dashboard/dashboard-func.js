@@ -100,5 +100,24 @@ class DashboardClient {
             return response.data.list;
         });
     }
+    /**
+     * Get Active Calls
+     * @returns {Promise<List<IActiveCalls>>>}
+     */
+    getActiveCalls() {
+        return __awaiter(this, void 0, void 0, function* () {
+            const response = yield this.httpClient.get('/api/activeCalls');
+            return response.data.list;
+        });
+    }
+    /**
+     * Drop Active Call By ID
+     * @param {number}
+     */
+    dropActiveCall(activeCallID) {
+        return __awaiter(this, void 0, void 0, function* () {
+            yield this.httpClient.post(`/api/activeCalls/drop`, { Id: activeCallID });
+        });
+    }
 }
 exports.DashboardClient = DashboardClient;

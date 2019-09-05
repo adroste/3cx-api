@@ -3,6 +3,7 @@ import { IResponseFirewall } from './firewall';
 import { IServices } from '../services';
 import { ISystemStatus } from '../system-status';
 import { IActivityLogs } from './activity-logs';
+import { IActiveCalls } from './active-calls';
 export declare class DashboardClient {
     private readonly httpClient;
     constructor(httpClient: IHttpClient);
@@ -51,4 +52,14 @@ export declare class DashboardClient {
      * @returns {Promise<List<IActivityLogs>>}
      */
     getActivityLogs(count: number, from: number): Promise<IActivityLogs[]>;
+    /**
+     * Get Active Calls
+     * @returns {Promise<List<IActiveCalls>>>}
+     */
+    getActiveCalls(): Promise<IActiveCalls[]>;
+    /**
+     * Drop Active Call By ID
+     * @param {number}
+     */
+    dropActiveCall(activeCallID: number): Promise<void>;
 }

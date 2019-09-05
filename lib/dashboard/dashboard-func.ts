@@ -4,6 +4,7 @@ import {IServices} from '../services';
 import {ISystemStatus} from '../system-status';
 import {IActivityLogs} from './activity-logs';
 import {IListResponse} from '../list-response';
+import {IActiveCalls} from './active-calls';
 
 export class DashboardClient {
     constructor(private readonly httpClient: IHttpClient) {
@@ -89,5 +90,21 @@ export class DashboardClient {
         return response.data.list;
     }
 
+    /**
+     * Get Active Calls
+     * @returns {Promise<List<IActiveCalls>>>}
+     */
+    public async getActiveCalls() {
+        const response = await this.httpClient.get<IListResponse<IActiveCalls>>('/api/activeCalls');
+        return response.data.list;
+    }
+
+    /**
+     * Drop Active Call By ID
+     * @param {number}
+     */
+    public async dropActiveCall(activeCallID: number) {
+        await this.httpClient.post(`/api/activeCalls/drop`, {Id: activeCallID});
+    }
 
 }
