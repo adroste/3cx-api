@@ -51,6 +51,11 @@ export declare class ConsoleClient {
      */
     getGroupList(): Promise<IGroup[]>;
     /**
+     * Delete Group By Id
+     * @param {string}
+     */
+    deleteGroup(ids: string): Promise<void>;
+    /**
      * Get phonebook
      * @returns {Promise<IPhonebookEntry[]>}
      */

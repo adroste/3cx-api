@@ -62,6 +62,15 @@ class ConsoleClient {
         });
     }
     /**
+     * Delete Group By Id
+     * @param {string}
+     */
+    deleteGroup(ids) {
+        return __awaiter(this, void 0, void 0, function* () {
+            yield this.httpClient.post(`/api/GroupList/delete`, { Ids: [ids] });
+        });
+    }
+    /**
      * Get phonebook
      * @returns {Promise<IPhonebookEntry[]>}
      */
