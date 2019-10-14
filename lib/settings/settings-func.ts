@@ -28,6 +28,7 @@ import {ISystemPromptSets} from './system-prompts/system-promptsets';
 import {IPrompts} from './system-prompts/prompts';
 import {IUpdateParameters, IUpdates} from '../updates';
 import {IWebmeetingToken} from './webmeeting-token';
+import {IServerSideTemplate} from './crm/crm-server-side-integration';
 
 export class SettingsClient {
     constructor(private readonly httpClient: IHttpClient) {
@@ -94,6 +95,15 @@ export class SettingsClient {
     public async getConferencingSettings() {
         const result = await this.httpClient.post<IActiveObjectResponse<IConferencing>>(`/api/Settings/ConferencingSettings`, {});
         return result.data.ActiveObject;
+    }
+
+    /**
+     * Get CRM Template
+     * @returns {Promise<IServerSideTemplate>}
+     */
+    public async getCRMTemplate(country: string, crmName: string) {
+        const response = await this.httpClient.get<IListResponse<IServerSideTemplate>>(`/api/CrmList/template?country=${country}&name=${crmName}`);
+        return response.data.list;
     }
 
     /**

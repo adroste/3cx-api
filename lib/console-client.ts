@@ -75,6 +75,14 @@ export class ConsoleClient {
     }
 
     /**
+     * Delete Group By Id
+     * @param {string}
+     */
+    public async deleteGroup(ids: string) {
+        await this.httpClient.post(`/api/GroupList/delete`, {Ids: [ids]});
+    }
+
+    /**
      * Get phonebook
      * @returns {Promise<IPhonebookEntry[]>}
      */

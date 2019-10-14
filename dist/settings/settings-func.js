@@ -83,6 +83,16 @@ class SettingsClient {
         });
     }
     /**
+     * Get CRM Template
+     * @returns {Promise<IServerSideTemplate>}
+     */
+    getCRMTemplate(country, crmName) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const response = yield this.httpClient.get(`/api/CrmList/template?country=${country}&name=${crmName}`);
+            return response.data.list;
+        });
+    }
+    /**
      * Post Server Side CRM Configurations
      * @returns {Promise<IActiveObjectResponse<IServerSideCRMIntegration>>}
      */
