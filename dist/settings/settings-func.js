@@ -330,6 +330,15 @@ class SettingsClient {
         });
     }
     /**
+     * Delete Emergency Number by ID
+     * @param {string}
+     */
+    deleteEmergencyNumber(ids) {
+        return __awaiter(this, void 0, void 0, function* () {
+            yield this.httpClient.post(`/api/OutboundRuleList/delete`, { Ids: [ids] });
+        });
+    }
+    /**
      * Post Security Configurations
      * @returns {Promise<IActiveObjectResponse<ISecurity>>}
      */

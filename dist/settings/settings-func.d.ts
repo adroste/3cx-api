@@ -198,6 +198,11 @@ export declare class SettingsClient {
      */
     getEmergencyNumbersSettings(): Promise<IEmergencyNumber[]>;
     /**
+     * Delete Emergency Number by ID
+     * @param {string}
+     */
+    deleteEmergencyNumber(ids: string): Promise<void>;
+    /**
      * Post Security Configurations
      * @returns {Promise<IActiveObjectResponse<ISecurity>>}
      */

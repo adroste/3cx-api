@@ -319,6 +319,14 @@ export class SettingsClient {
     }
 
     /**
+     * Delete Emergency Number by ID
+     * @param {string}
+     */
+    public async deleteEmergencyNumber(ids: string) {
+        await this.httpClient.post(`/api/OutboundRuleList/delete`, {Ids: [ids]});
+    }
+
+    /**
      * Post Security Configurations
      * @returns {Promise<IActiveObjectResponse<ISecurity>>}
      */
