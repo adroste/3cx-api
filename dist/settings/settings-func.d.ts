@@ -188,6 +188,11 @@ export declare class SettingsClient {
      */
     editDNProperty(newParameter: IParameters): Promise<void>;
     /**
+     * Delete Parameter by Name
+     * @param {string}
+     */
+    deleteDNParameter(parameterName: string, dnNumber: string): Promise<void>;
+    /**
      * Post PBX Configurations
      * @returns {Promise<IActiveObjectResponse<IPBX>>}
      */

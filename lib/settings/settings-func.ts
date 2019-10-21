@@ -300,6 +300,14 @@ export class SettingsClient {
     public async editDNProperty(newParameter: IParameters) {
         await this.httpClient.post(`/api/dnProperties`, newParameter);
     }
+
+    /**
+     * Delete Parameter by Name
+     * @param {string}
+     */
+    public async deleteDNParameter(parameterName: string, dnNumber: string) {
+        await this.httpClient.post(`/api/dnProperties/delete`, {Dn: dnNumber, name: parameterName});
+    }
     /**
      * Post PBX Configurations
      * @returns {Promise<IActiveObjectResponse<IPBX>>}

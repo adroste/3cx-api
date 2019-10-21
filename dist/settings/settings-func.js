@@ -310,6 +310,15 @@ class SettingsClient {
         });
     }
     /**
+     * Delete Parameter by Name
+     * @param {string}
+     */
+    deleteDNParameter(parameterName, dnNumber) {
+        return __awaiter(this, void 0, void 0, function* () {
+            yield this.httpClient.post(`/api/dnProperties/delete`, { Dn: dnNumber, name: parameterName });
+        });
+    }
+    /**
      * Post PBX Configurations
      * @returns {Promise<IActiveObjectResponse<IPBX>>}
      */
