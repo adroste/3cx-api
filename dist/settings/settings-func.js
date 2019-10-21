@@ -290,6 +290,15 @@ class SettingsClient {
         });
     }
     /**
+     * Add DN Parameter
+     * @param {IParameters}
+     */
+    addDNParameter(newParameter) {
+        return __awaiter(this, void 0, void 0, function* () {
+            yield this.httpClient.post(`/api/dnProperties/new`, newParameter);
+        });
+    }
+    /**
      * Get DN Property list
      * @param {string}
      * @returns {Promise<IListResponse<IParameters>>}

@@ -284,6 +284,14 @@ export class SettingsClient {
     }
 
     /**
+     * Add DN Parameter
+     * @param {IParameters}
+     */
+    public async addDNParameter(newParameter: IParameters) {
+        await this.httpClient.post(`/api/dnProperties/new`, newParameter);
+    }
+
+    /**
      * Get DN Property list
      * @param {string}
      * @returns {Promise<IListResponse<IParameters>>}

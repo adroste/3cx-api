@@ -177,6 +177,11 @@ export declare class SettingsClient {
      */
     editParameter(newParameter: IParameters): Promise<void>;
     /**
+     * Add DN Parameter
+     * @param {IParameters}
+     */
+    addDNParameter(newParameter: IParameters): Promise<void>;
+    /**
      * Get DN Property list
      * @param {string}
      * @returns {Promise<IListResponse<IParameters>>}
