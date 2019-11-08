@@ -7,3 +7,8 @@ import { IHttpClient } from './http-client';
  * @returns {Promise<string>}
  */
 export declare function login(httpClient: IHttpClient, cred: ICredentials): Promise<string>;
+/**
+ * Logout from 3CX Phone System API
+ * @param {IHttpClient} httpClient
+ */
+export declare function logout(httpClient: IHttpClient): Promise<import("./http-client").IResponse<string>>;

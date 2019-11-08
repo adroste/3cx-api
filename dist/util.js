@@ -20,3 +20,13 @@ function login(httpClient, cred) {
     });
 }
 exports.login = login;
+/**
+ * Logout from 3CX Phone System API
+ * @param {IHttpClient} httpClient
+ */
+function logout(httpClient) {
+    return __awaiter(this, void 0, void 0, function* () {
+        return yield httpClient.post('/api/logout');
+    });
+}
+exports.logout = logout;
