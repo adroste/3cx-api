@@ -51,6 +51,36 @@ class DashboardClient {
         });
     }
     /**
+     * Stop Service
+     * @returns {Promise<IServices[]>}
+     */
+    stopService(serviceName) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const response = yield this.httpClient.post(`/api/ServiceList/stop`, [serviceName]);
+            return response.data;
+        });
+    }
+    /**
+     * Start Service
+     * @returns {Promise<IServices[]>}
+     */
+    startService(serviceName) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const response = yield this.httpClient.post(`/api/ServiceList/start`, [serviceName]);
+            return response.data;
+        });
+    }
+    /**
+     * Restart Service
+     * @returns {Promise<IServices[]>}
+     */
+    restartService(serviceName) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const response = yield this.httpClient.post(`/api/ServiceList/restart`, [serviceName]);
+            return response.data;
+        });
+    }
+    /**
      * Get system status
      * @returns {Promise<ISystemStatus>}
      */

@@ -46,6 +46,33 @@ export class DashboardClient {
     }
 
     /**
+     * Stop Service
+     * @returns {Promise<IServices[]>}
+     */
+    public async stopService(serviceName: string) {
+        const response = await this.httpClient.post<IServices[]>(`/api/ServiceList/stop`, [serviceName]);
+        return response.data;
+    }
+
+    /**
+     * Start Service
+     * @returns {Promise<IServices[]>}
+     */
+    public async startService(serviceName: string) {
+        const response = await this.httpClient.post<IServices[]>(`/api/ServiceList/start`, [serviceName]);
+        return response.data;
+    }
+
+    /**
+     * Restart Service
+     * @returns {Promise<IServices[]>}
+     */
+    public async restartService(serviceName: string) {
+        const response = await this.httpClient.post<IServices[]>(`/api/ServiceList/restart`, [serviceName]);
+        return response.data;
+    }
+
+    /**
      * Get system status
      * @returns {Promise<ISystemStatus>}
      */

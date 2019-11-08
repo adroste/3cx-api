@@ -28,6 +28,21 @@ export declare class DashboardClient {
      */
     getServicesStatus(): Promise<IServices[]>;
     /**
+     * Stop Service
+     * @returns {Promise<IServices[]>}
+     */
+    stopService(serviceName: string): Promise<IServices[]>;
+    /**
+     * Start Service
+     * @returns {Promise<IServices[]>}
+     */
+    startService(serviceName: string): Promise<IServices[]>;
+    /**
+     * Restart Service
+     * @returns {Promise<IServices[]>}
+     */
+    restartService(serviceName: string): Promise<IServices[]>;
+    /**
      * Get system status
      * @returns {Promise<ISystemStatus>}
      */
