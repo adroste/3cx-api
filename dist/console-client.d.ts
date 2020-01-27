@@ -162,6 +162,11 @@ export declare class ConsoleClient {
      */
     deleteBackup(id: number): Promise<void>;
     /**
+     * Restore Backup
+     * @param {string}
+     */
+    restoreBackup(backupId: string, backupPassword: string): Promise<void>;
+    /**
      * Get Call Log List
      * @param {ICallLogsParameters}
      * @returns {Promise<ICallLogs>}

@@ -278,6 +278,15 @@ class ConsoleClient {
         });
     }
     /**
+     * Restore Backup
+     * @param {string}
+     */
+    restoreBackup(backupId, backupPassword) {
+        return __awaiter(this, void 0, void 0, function* () {
+            yield this.httpClient.post(`/api/BackupAndRestoreList/restore`, { id: backupId, password: backupPassword });
+        });
+    }
+    /**
      * Get Call Log List
      * @param {ICallLogsParameters}
      * @returns {Promise<ICallLogs>}

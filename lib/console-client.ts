@@ -270,6 +270,15 @@ export class ConsoleClient {
     }
 
     /**
+     * Restore Backup
+     * @param {string}
+     */
+    public async restoreBackup(backupId: string, backupPassword: string) {
+        await this.httpClient.post(`/api/BackupAndRestoreList/restore`, {id: backupId, password: backupPassword});
+    }
+
+
+    /**
      * Get Call Log List
      * @param {ICallLogsParameters}
      * @returns {Promise<ICallLogs>}
