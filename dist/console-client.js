@@ -244,9 +244,27 @@ class ConsoleClient {
      */
     getRecordingsList(recordingParams) {
         return __awaiter(this, void 0, void 0, function* () {
-            const url = `/api/RecordingList?count=${recordingParams.count}&dateTimeParts=${recordingParams.dateTimeParts}&filter=${recordingParams.filter}&from=${recordingParams.from}&onlyTime=${recordingParams.onlyTime}`;
+            let url = `/api/RecordingList?callTypeFilter=${recordingParams.callTypeFilter}&count=${recordingParams.count}&start=${recordingParams.start}&filter=${recordingParams.filter}`;
+            if (recordingParams.before) {
+                url = url + `before=${recordingParams.before}`;
+            }
+            if (recordingParams.after) {
+                url = url + `after=${recordingParams.after}`;
+            }
+            if (recordingParams.to) {
+                url = url + `to=${recordingParams.to}`;
+            }
             const response = yield this.httpClient.get(url);
             return response.data;
+        });
+    }
+    /**
+     * Post Archive List of Recordings
+     * @param {number[]}
+     */
+    archiveRecording(ids) {
+        return __awaiter(this, void 0, void 0, function* () {
+            yield this.httpClient.post(`/api/RecordingList/archive`, ids);
         });
     }
     /**

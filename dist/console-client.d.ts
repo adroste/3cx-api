@@ -147,6 +147,11 @@ export declare class ConsoleClient {
      */
     getRecordingsList(recordingParams: IRecordingParameters): Promise<IRecordings>;
     /**
+     * Post Archive List of Recordings
+     * @param {number[]}
+     */
+    archiveRecording(ids: number[]): Promise<void>;
+    /**
      * Get Backup List
      * @returns {Promise<IBackup>}
      */

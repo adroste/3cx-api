@@ -1,21 +1,25 @@
 export interface IRecordingParameters {
+    after?: string;
+    before?: string;
+    callTypeFilter: number;
     count: number;
-    dateTimeParts: string;
-    filter: string;
-    from: number;
-    onlyTime: boolean;
+    filter?: string;
+    start?: number;
+    to?: number;
 }
 export interface IRecordings {
     TotalRowsCount: number;
+    isGDriveSelected: boolean;
+    transferRecordings: string;
+    isArchiveEnabled: boolean;
     list: IRecording[];
 }
 export interface IRecording {
-    CallerId: string;
+    Id: number;
+    IsArchived: boolean;
     Date: string;
-    DestDn: string;
-    DisplayName: string;
-    Dn?: string;
-    Filename: string;
-    Id: string;
-    SourceDn: string;
+    Transcription: null | string;
+    Participants: string[];
+    CallerNumber: string;
+    DID: null | string;
 }

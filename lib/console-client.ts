@@ -239,11 +239,31 @@ export class ConsoleClient {
      * @returns {Promise<IRecordings>}
      */
     public async getRecordingsList(recordingParams: IRecordingParameters) {
-        const url = `/api/RecordingList?count=${recordingParams.count}&dateTimeParts=${recordingParams.dateTimeParts}&filter=${recordingParams.filter}&from=${recordingParams.from}&onlyTime=${recordingParams.onlyTime}`;
+        let url = `/api/RecordingList?callTypeFilter=${recordingParams.callTypeFilter}&count=${recordingParams.count}&start=${recordingParams.start}&filter=${recordingParams.filter}`;
+
+        if (recordingParams.before) {
+            url = url + `before=${recordingParams.before}`;
+        }
+
+        if (recordingParams.after) {
+            url = url + `after=${recordingParams.after}`;
+        }
+
+        if (recordingParams.to) {
+            url = url + `to=${recordingParams.to}`;
+        }
+
         const response = await this.httpClient.get<IRecordings>(url);
         return response.data;
     }
 
+    /**
+     * Post Archive List of Recordings
+     * @param {number[]}
+     */
+    public async archiveRecording(ids: number[]) {
+        await this.httpClient.post(`/api/RecordingList/archive`, ids);
+    }
     /**
      * Get Backup List
      * @returns {Promise<IBackup>}
