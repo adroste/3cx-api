@@ -49,3 +49,7 @@ main();
 Unfortunately, there are no docs available at this moment.
 However, the code is very simple. 
 I'll suggest you start by looking at the `lib/console-client.ts` as well as `lib/dashboard/dashboard-func.ts`. The majority of available endpoints is implemented those two files.
+
+## Hints
+
+* **DN Properties:** To list/manage DN properties in the Web-Interface go to *Settings -> Paramters* and set `DEVELOPMENT_DNTABLE_EXPOSE` to `1`. Refresh the page and you should see the DN properties tab.
