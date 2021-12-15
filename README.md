@@ -1,35 +1,51 @@
-# 3CX Phone System API
+# REST-API for 3CX
 
-This set of API provides an interface to 3CX Phone System. 
-Only a limited amount of items is available but feel free to contact me for extending the list.
+This is a fork of the last publicly available 3CX Phone API (see: https://www.npmjs.com/package/@3cx/api).
+As long as we are waiting for a new public API this is all we got.
+As I'm working on small side projects  that rely on this api I'll try to maintain it a bit (update dependencies, add missing APIs etc.)
 
-Available:
-- Reports
-- System status
-- Current user information
-- Extension, Group, Fax, Phonebook contents view
+I will accept pull requests that for instance
+* add missing APIs,
+* remove unsupported APIs,
+* fix stuff,
+* introduce handy utils etc.
+
+
+# Related projects
+
+* https://github.com/adroste/3cx-tools
+
 
 # Getting started
 
 Installation:
     
-    npm install @3cx/api --save
+```bash
+# npm
+npm install --save @adroste/3cx-api
+
+# yarn
+yarn add @adroste/3cx-api
+```
+
   
 # Usage
 
-This is a sample on how to get system status information. Please supply your FQDN:port and access credentials.
+```ts
+import { createClient, ConsoleClient } from '@adroste/3cx-api';
 
-    import {createClient, ConsoleClient} from '@3cx/api';
+async function main(){
+    const http = await createClient('http://my-3cx-instance:5000', { Username: 'Admin', Password: '############' });
+    const api = new ConsoleClient(http);
 
-    async function main(){
-        const http = await createClient('http://secure.3cx.my:5000', {Username: 'Admin', Password: '############'});
-        const api = new ConsoleClient(http);
+    console.log(await api.getSystemStatus());
+}
 
-        console.log(await api.getSystemStatus());
-    }
+main();
+```
 
-    main();
+# Docs
 
-# Samples
-
-For samples please refer to https://github.com/sherlock1982/3cx-api-samples
+Unfortunately, there are no docs available at this moment.
+However, the code is very simple. 
+I'll suggest you start by looking at the `lib/console-client.ts` as well as `lib/dashboard/dashboard-func.ts`. The majority of available endpoints is implemented those two files.
