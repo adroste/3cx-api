@@ -1,29 +1,30 @@
+import {IRecordingParameters, IRecordings} from './recording';
+
+import {IBackup} from './backup/backup';
+import {ICallFlow} from './call-flow';
+import {ICallLogs} from './call-logs/call-logs';
+import {ICallLogsParameters} from './call-logs/call-log-parameters';
 import {IChats} from './chats';
 import {IExtension} from './extension';
 import {IFax} from './fax';
-import {IGroup} from './group';
-import {IHttpClient} from './http-client';
-import {IListResponse} from './list-response';
-import {IPhone} from './phone';
-import {IPhonebookEntry} from './phonebook/phonebook-entry';
-import {IQueue} from './queue';
-import {IUserInfo} from './userinfo';
-import {ITrunks} from './trunk';
-import {IOutboundRule} from './outbound-rule';
-import {IInboundRule} from './inbound-rule';
-import {IIVR} from './digital-receptionist';
 import {IFaxExtension} from './fax-extension';
 import {IFxsDect} from './fxs-dect';
-import {IBackup} from './backup/backup';
-import {ICallLogs} from './call-logs/call-logs';
-import {IRecordingParameters, IRecordings} from './recording';
-import {ICallLogsParameters} from './call-logs/call-log-parameters';
+import {IGroup} from './group';
+import {IHttpClient} from './http-client';
+import {IIVR} from './digital-receptionist';
+import {IInboundRule} from './inbound-rule';
+import {IListResponse} from './list-response';
 import {INewBackup} from './backup/newBackup';
+import {IOutboundRule} from './outbound-rule';
+import {IPhone} from './phone';
+import {IPhoneTemplate} from './phone-templates';
+import {IPhonebookEntry} from './phonebook/phonebook-entry';
+import {IQueue} from './queue';
 import {IRingGroup} from './ring-group';
+import {ITrunks} from './trunk';
 import {IUpdateParameters} from './updates/update-parameters';
 import {IUpdates} from './updates/updates';
-import {IPhoneTemplate} from './phone-templates';
-import {ICallFlow} from './call-flow';
+import {IUserInfo} from './userinfo';
 
 export class ConsoleClient {
     constructor(private readonly httpClient: IHttpClient) {

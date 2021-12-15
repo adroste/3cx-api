@@ -1,5 +1,11 @@
 // created from 'create-ts-index'
 
+export * from './License';
+export * from './crm';
+export * from './music-on-hold';
+export * from './pbx';
+export * from './system-prompts';
+export * from './templates';
 export * from './blacklisted-numbers';
 export * from './call-parking';
 export * from './cdr';
@@ -15,3 +21,4 @@ export * from './settings-func';
 export * from './tcx-client';
 export * from './timezone-and-office-hours';
 export * from './voicemail';
+export * from './webmeeting-token';
