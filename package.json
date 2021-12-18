@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "scripts": {
-    "create-index": "cti lib",
+    "create-index": "cti lib --withoutbackup",
     "lint": "tslint --project tsconfig.json",
     "build": "tsc"
   },
