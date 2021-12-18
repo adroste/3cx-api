@@ -87,8 +87,8 @@ export class ConsoleClient {
      * Get phonebook
      * @returns {Promise<IPhonebookEntry[]>}
      */
-    public async getContactList() {
-        const response = await this.httpClient.get<IListResponse<IPhonebookEntry>>('/api/PhoneBookEntryList');
+    public async getContactList(count: number, from: number) {
+        const response = await this.httpClient.get<IListResponse<IPhonebookEntry>>(`/api/PhoneBookEntryList?count=${count}&filter=&from=${from}`);
         return response.data.list;
     }
 
