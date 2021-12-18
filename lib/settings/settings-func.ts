@@ -1,35 +1,36 @@
-import {IHttpClient} from '../http-client';
-import {IEmailTemplate} from './email-template';
-import {IPhoneTemplates} from './templates/phone-template';
-import {IDialCodes} from './dial-codes';
-import {IActiveObjectResponse} from '../active-object-response';
-import {ILicense} from './License';
-import {IBlacklistedNumbers} from './blacklisted-numbers';
-import {IListResponse} from '../list-response';
-import {IMusicOnHold} from './music-on-hold';
-import {IFaxServer} from './fax-server';
-import {IE164} from './e164';
-import {ICallParking} from './call-parking';
-import {ICDR} from './cdr';
-import {ITimezoneOfficeHours} from './timezone-and-office-hours';
-import {IConferencing} from './conferencing';
-import {I3CXClient} from './tcx-client';
-import {IClientSideCRMIntegration, IServerSideCRMIntegration} from './crm';
-import {IParameters} from './paramaters';
-import {IEmergencyNumber, IPBX} from './pbx';
-import {ISecurity} from './security';
-import {IVoicemail} from './voicemail';
-import {IHotelModule} from './hotel-module';
-import {ICopyTemplate} from './templates/copy-template';
-import {ISaveTemplate} from './templates/saveTemplate';
-import {IResponseSaveTemplate} from './templates/response-save-template';
-import {ISystemPrompts} from './system-prompts/system-prompts';
-import {ISystemPromptSets} from './system-prompts/system-promptsets';
-import {IPrompts} from './system-prompts/prompts';
-import {IUpdateParameters, IUpdates} from '../updates';
-import {IWebmeetingToken} from './webmeeting-token';
-import {IServerSideTemplate} from './crm/crm-server-side-integration';
+import { IClientSideCRMIntegration, IServerSideCRMIntegration } from './crm';
+import { IEmergencyNumber, IPBX } from './pbx';
+import { IUpdateParameters, IUpdates } from '../updates';
+
+import { I3CXClient } from './tcx-client';
+import { IActiveObjectResponse } from '../active-object-response';
+import { IBlacklistedNumbers } from './blacklisted-numbers';
+import { ICDR } from './cdr';
+import { ICallParking } from './call-parking';
+import { IConferencing } from './conferencing';
 import { IContactSettings } from './phonebook/phonebook';
+import { ICopyTemplate } from './templates/copy-template';
+import { IDialCodes } from './dial-codes';
+import { IE164 } from './e164';
+import { IEmailTemplate } from './email-template';
+import { IFaxServer } from './fax-server';
+import { IHotelModule } from './hotel-module';
+import { IHttpClient } from '../http-client';
+import { ILicense } from './License';
+import { IListResponse } from '../list-response';
+import { IMusicOnHold } from './music-on-hold';
+import { IParameters } from './paramaters';
+import { IPhoneTemplates } from './templates/phone-template';
+import { IPrompts } from './system-prompts/prompts';
+import { IResponseSaveTemplate } from './templates/response-save-template';
+import { ISaveTemplate } from './templates/saveTemplate';
+import { ISecurity } from './security';
+import { IServerSideTemplate } from './crm/crm-server-side-integration';
+import { ISystemPromptSets } from './system-prompts/system-promptsets';
+import { ISystemPrompts } from './system-prompts/system-prompts';
+import { ITimezoneOfficeHours } from './timezone-and-office-hours';
+import { IVoicemail } from './voicemail';
+import { IWebmeetingToken } from './webmeeting-token';
 
 export class SettingsClient {
     constructor(private readonly httpClient: IHttpClient) {
@@ -59,7 +60,7 @@ export class SettingsClient {
      * @returns {}
      */
     public async deleteBlacklistedNumber(deletedId: string) {
-        await this.httpClient.post(`/api/NumberBlackList/delete`, {Ids: [deletedId]});
+        await this.httpClient.post(`/api/NumberBlackList/delete`, { Ids: [deletedId] });
     }
 
     /**
@@ -67,7 +68,7 @@ export class SettingsClient {
      * @returns {IActiveObjectResponse<IBlacklistedNumbers>}
      */
     public async addBlacklistedNumber() {
-        const result = await this.httpClient.post<IActiveObjectResponse<IBlacklistedNumbers>>(`/api/NumberBlackList/new`, {Param: {}});
+        const result = await this.httpClient.post<IActiveObjectResponse<IBlacklistedNumbers>>(`/api/NumberBlackList/new`, { Param: {} });
         return result.data;
     }
 
@@ -169,7 +170,7 @@ export class SettingsClient {
      * @returns {}
      */
     public async deleteClientSideCRM(clientCrm: string) {
-        await this.httpClient.post(`/api/crm/delete`, {Name: clientCrm});
+        await this.httpClient.post(`/api/crm/delete`, { Name: clientCrm });
     }
 
     /**
@@ -265,7 +266,7 @@ export class SettingsClient {
      * @param {string}
      */
     public async deleteParameter(parameterName: string) {
-        await this.httpClient.post(`/api/CustomParametersList/delete`, {name: parameterName});
+        await this.httpClient.post(`/api/CustomParametersList/delete`, { name: parameterName });
     }
 
     /**
@@ -315,7 +316,7 @@ export class SettingsClient {
      * @param {string}
      */
     public async deleteDNParameter(parameterName: string, dnNumber: string) {
-        await this.httpClient.post(`/api/dnProperties/delete`, {Dn: dnNumber, name: parameterName});
+        await this.httpClient.post(`/api/dnProperties/delete`, { Dn: dnNumber, name: parameterName });
     }
     /**
      * Post PBX Configurations
@@ -340,7 +341,7 @@ export class SettingsClient {
      * @param {string}
      */
     public async deleteEmergencyNumber(ids: string) {
-        await this.httpClient.post(`/api/OutboundRuleList/delete`, {Ids: [ids]});
+        await this.httpClient.post(`/api/OutboundRuleList/delete`, { Ids: [ids] });
     }
 
     /**
@@ -367,7 +368,7 @@ export class SettingsClient {
      * returns {Promise<IListResponse<IPrompts>>}
      */
     public async setActivePromptSet(name: string) {
-        const response = await this.httpClient.post<IListResponse<IPrompts>>(`/api/SystemPromptList/setActivePromptSet`, {Name: name});
+        const response = await this.httpClient.post<IListResponse<IPrompts>>(`/api/SystemPromptList/setActivePromptSet`, { Name: name });
         return response.data.list;
     }
 
@@ -377,7 +378,7 @@ export class SettingsClient {
      * returns {Promise<ISystemPrompts>}
      */
     public async deleteSystemPrompt(namePromptSet: string) {
-        await this.httpClient.post<ISystemPrompts>(`/api/SystemPromptList/deletePromptSet`, {Name: namePromptSet});
+        await this.httpClient.post<ISystemPrompts>(`/api/SystemPromptList/deletePromptSet`, { Name: namePromptSet });
     }
 
     /**
@@ -421,7 +422,7 @@ export class SettingsClient {
      * @returns {Promise<IListResponse<string>>}
      */
     public async deletePhoneTemplate(templateName: string) {
-        const response = await this.httpClient.post<IListResponse<string>>(`/api/PhoneTemplates/delete`, {filename: templateName});
+        const response = await this.httpClient.post<IListResponse<string>>(`/api/PhoneTemplates/delete`, { filename: templateName });
         return response.data.list;
     }
 
