@@ -15,6 +15,7 @@ __exportStar(require("./License"), exports);
 __exportStar(require("./crm"), exports);
 __exportStar(require("./music-on-hold"), exports);
 __exportStar(require("./pbx"), exports);
+__exportStar(require("./phonebook"), exports);
 __exportStar(require("./system-prompts"), exports);
 __exportStar(require("./templates"), exports);
 __exportStar(require("./blacklisted-numbers"), exports);

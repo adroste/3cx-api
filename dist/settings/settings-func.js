@@ -400,6 +400,16 @@ class SettingsClient {
         });
     }
     /**
+     * Post Contact (PhoneBook) Configurations
+     * @returns {Promise<IActiveObjectResponse<IContactSettings>>}
+     */
+    getContactSettings() {
+        return __awaiter(this, void 0, void 0, function* () {
+            const result = yield this.httpClient.post(`/api/PhoneBookEntryList/settings`, {});
+            return result.data.ActiveObject;
+        });
+    }
+    /**
      * Get Phone Template
      * @returns {Promise<IPhoneTemplates>}
      */

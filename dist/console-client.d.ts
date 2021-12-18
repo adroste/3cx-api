@@ -59,7 +59,7 @@ export declare class ConsoleClient {
      * Get phonebook
      * @returns {Promise<IPhonebookEntry[]>}
      */
-    getContactList(): Promise<IPhonebookEntry[]>;
+    getContactList(count: number, from: number): Promise<IPhonebookEntry[]>;
     /**
      * Delete Contact By ID
      * @param {string}

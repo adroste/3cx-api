@@ -1,32 +1,33 @@
-import { IHttpClient } from '../http-client';
-import { IEmailTemplate } from './email-template';
-import { IPhoneTemplates } from './templates/phone-template';
-import { IDialCodes } from './dial-codes';
-import { IActiveObjectResponse } from '../active-object-response';
-import { ILicense } from './License';
-import { IBlacklistedNumbers } from './blacklisted-numbers';
-import { IMusicOnHold } from './music-on-hold';
-import { IFaxServer } from './fax-server';
-import { IE164 } from './e164';
-import { ICallParking } from './call-parking';
-import { ICDR } from './cdr';
-import { ITimezoneOfficeHours } from './timezone-and-office-hours';
-import { IConferencing } from './conferencing';
-import { I3CXClient } from './tcx-client';
 import { IClientSideCRMIntegration, IServerSideCRMIntegration } from './crm';
-import { IParameters } from './paramaters';
 import { IEmergencyNumber, IPBX } from './pbx';
-import { ISecurity } from './security';
-import { IVoicemail } from './voicemail';
-import { IHotelModule } from './hotel-module';
-import { ICopyTemplate } from './templates/copy-template';
-import { ISaveTemplate } from './templates/saveTemplate';
-import { IResponseSaveTemplate } from './templates/response-save-template';
-import { ISystemPromptSets } from './system-prompts/system-promptsets';
-import { IPrompts } from './system-prompts/prompts';
 import { IUpdateParameters, IUpdates } from '../updates';
-import { IWebmeetingToken } from './webmeeting-token';
+import { I3CXClient } from './tcx-client';
+import { IActiveObjectResponse } from '../active-object-response';
+import { IBlacklistedNumbers } from './blacklisted-numbers';
+import { ICDR } from './cdr';
+import { ICallParking } from './call-parking';
+import { IConferencing } from './conferencing';
+import { IContactSettings } from './phonebook/phonebook';
+import { ICopyTemplate } from './templates/copy-template';
+import { IDialCodes } from './dial-codes';
+import { IE164 } from './e164';
+import { IEmailTemplate } from './email-template';
+import { IFaxServer } from './fax-server';
+import { IHotelModule } from './hotel-module';
+import { IHttpClient } from '../http-client';
+import { ILicense } from './License';
+import { IMusicOnHold } from './music-on-hold';
+import { IParameters } from './paramaters';
+import { IPhoneTemplates } from './templates/phone-template';
+import { IPrompts } from './system-prompts/prompts';
+import { IResponseSaveTemplate } from './templates/response-save-template';
+import { ISaveTemplate } from './templates/saveTemplate';
+import { ISecurity } from './security';
 import { IServerSideTemplate } from './crm/crm-server-side-integration';
+import { ISystemPromptSets } from './system-prompts/system-promptsets';
+import { ITimezoneOfficeHours } from './timezone-and-office-hours';
+import { IVoicemail } from './voicemail';
+import { IWebmeetingToken } from './webmeeting-token';
 export declare class SettingsClient {
     private readonly httpClient;
     constructor(httpClient: IHttpClient);
@@ -234,6 +235,11 @@ export declare class SettingsClient {
      * returns {Promise<ISystemPrompts>}
      */
     deleteSystemPrompt(namePromptSet: string): Promise<void>;
+    /**
+     * Post Contact (PhoneBook) Configurations
+     * @returns {Promise<IActiveObjectResponse<IContactSettings>>}
+     */
+    getContactSettings(): Promise<IContactSettings>;
     /**
      * Get Phone Template
      * @returns {Promise<IPhoneTemplates>}

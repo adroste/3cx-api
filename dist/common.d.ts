@@ -15,9 +15,9 @@ export interface IElementType {
     disabled?: boolean;
     hide?: boolean;
 }
-export interface IItemSetType {
-    possibleValues: string[];
-    selected: string;
+export interface IItemSetType<T = string> {
+    possibleValues: T[];
+    selected: T;
     translatable: boolean;
     type: string;
     hide?: boolean;

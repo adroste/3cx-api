@@ -1,7 +1,7 @@
 export interface IActiveCalls {
     Callee: string;
     Caller: string;
-    Duration: string;
+    EstablishedAt: string;
     Id: number;
     LastChangeStatus: string;
     Status: string;

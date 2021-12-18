@@ -76,9 +76,9 @@ class ConsoleClient {
      * Get phonebook
      * @returns {Promise<IPhonebookEntry[]>}
      */
-    getContactList() {
+    getContactList(count, from) {
         return __awaiter(this, void 0, void 0, function* () {
-            const response = yield this.httpClient.get('/api/PhoneBookEntryList');
+            const response = yield this.httpClient.get(`/api/PhoneBookEntryList?count=${count}&filter=&from=${from}`);
             return response.data.list;
         });
     }
