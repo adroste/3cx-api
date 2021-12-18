@@ -29,6 +29,7 @@ import {IPrompts} from './system-prompts/prompts';
 import {IUpdateParameters, IUpdates} from '../updates';
 import {IWebmeetingToken} from './webmeeting-token';
 import {IServerSideTemplate} from './crm/crm-server-side-integration';
+import { IContactSettings } from './phonebook/phonebook';
 
 export class SettingsClient {
     constructor(private readonly httpClient: IHttpClient) {
@@ -377,6 +378,15 @@ export class SettingsClient {
      */
     public async deleteSystemPrompt(namePromptSet: string) {
         await this.httpClient.post<ISystemPrompts>(`/api/SystemPromptList/deletePromptSet`, {Name: namePromptSet});
+    }
+
+    /**
+     * Post Contact (PhoneBook) Configurations
+     * @returns {Promise<IActiveObjectResponse<IContactSettings>>}
+     */
+    public async getContactSettings() {
+        const result = await this.httpClient.post<IActiveObjectResponse<IContactSettings>>(`/api/PhoneBookEntryList/settings`, {});
+        return result.data.ActiveObject;
     }
 
     /**

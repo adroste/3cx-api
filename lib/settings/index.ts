@@ -4,6 +4,7 @@ export * from './License';
 export * from './crm';
 export * from './music-on-hold';
 export * from './pbx';
+export * from './phonebook';
 export * from './system-prompts';
 export * from './templates';
 export * from './blacklisted-numbers';
