@@ -16,6 +16,16 @@ I will accept pull requests that for instance
 * https://github.com/adroste/3cx-tools
 
 
+# Other APIs for 3CX
+
+* Call Control API 
+  * official .NET library for 3CX. Still available, but no longer supported. Documentation was unpublished recently. 
+  * e.g. https://github.com/Montesuma80/3cx-web-API : dotnet core based server application to control calls (make calls, drop calls, transfer etc.)
+* MyPhone API (`/MyPhone/MPWebService.asmx`)
+  * Lot of useful endpoints but it uses an undocumented binary format
+  * used by the official webclient
+
+
 # Getting started
 
 Installation:
