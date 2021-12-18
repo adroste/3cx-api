@@ -29,9 +29,9 @@
     "axios": "^0.24.0"
   },
   "bugs": {
-    "url": "https://github.com/sherlock1982/3cx-api/issues"
+    "url": "https://github.com/adroste/3cx-api/issues"
   },
-  "homepage": "https://github.com/sherlock1982/3cx-api",
+  "homepage": "https://github.com/adroste/3cx-api",
   "engines": {
     "node": ">= 15.0.0",
     "npm": ">= 8.0.0"
