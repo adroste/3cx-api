@@ -1,7 +1,7 @@
-import {ICredentials} from './credentials';
-import {IHttpClient} from './http-client';
+import { ICredentials } from './credentials';
+import { IHttpClient } from './http-client';
 import axios from 'axios';
-import {login} from './util';
+import { login } from './util';
 
 /**
  * Create logged in HTTP client
@@ -10,9 +10,14 @@ import {login} from './util';
  * @returns {Promise<IHttpClient>}
  */
 export async function createClient(baseURL: string, credentials: ICredentials): Promise<IHttpClient> {
-    const http = axios.create({baseURL, withCredentials: true });
+    const { wrapper } = await import(/* webpackIgnore: true */ 'axios-cookiejar-support');
+    const { CookieJar } = await import(/* webpackIgnore: true */ 'tough-cookie');
+    const jar = new CookieJar();
+    const http = wrapper(axios.create({ baseURL, withCredentials: true, jar }));
+
     if (await login(http, credentials) !== 'AuthSuccess') {
         throw new Error('Invalid credentials');
     }
+
     return http;
 }

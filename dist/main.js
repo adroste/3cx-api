@@ -20,7 +20,10 @@ const util_1 = require("./util");
  */
 function createClient(baseURL, credentials) {
     return __awaiter(this, void 0, void 0, function* () {
-        const http = axios_1.default.create({ baseURL, withCredentials: true });
+        const { wrapper } = yield Promise.resolve().then(() => require(/* webpackIgnore: true */ 'axios-cookiejar-support'));
+        const { CookieJar } = yield Promise.resolve().then(() => require(/* webpackIgnore: true */ 'tough-cookie'));
+        const jar = new CookieJar();
+        const http = wrapper(axios_1.default.create({ baseURL, withCredentials: true, jar }));
         if ((yield (0, util_1.login)(http, credentials)) !== 'AuthSuccess') {
             throw new Error('Invalid credentials');
         }

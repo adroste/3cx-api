@@ -7,7 +7,8 @@
   "scripts": {
     "create-index": "cti lib --withoutbackup",
     "lint": "tslint --project tsconfig.json",
-    "build": "tsc"
+    "build": "tsc",
+    "build:watch": "tsc -w"
   },
   "author": "Alexander Droste",
   "contributors": [
@@ -21,12 +22,15 @@
     "url": "https://github.com/adroste/3cx-api.git"
   },
   "devDependencies": {
+    "@types/tough-cookie": "^4.0.1",
     "create-ts-index": "^1.13.7",
     "tslint": "^6.1.3",
     "typescript": "^4.5.3"
   },
   "dependencies": {
-    "axios": "^0.24.0"
+    "axios": "^0.24.0",
+    "axios-cookiejar-support": "^2.0.3",
+    "tough-cookie": "^4.0.0"
   },
   "bugs": {
     "url": "https://github.com/adroste/3cx-api/issues"
