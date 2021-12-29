@@ -191,6 +191,38 @@ class ConsoleClient {
         });
     }
     /**
+     * Get IVR Settings (for IVR id returned by getIVRList())
+     * @returns {Promise<IIVR>}
+     */
+    getIVRSettings(id) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const response = yield this.httpClient.post(`/api/IVRList/set`, { Id: id });
+            return response.data;
+        });
+    }
+    /**
+     * Update IVR Settings (for IVR active edit id)
+     * @returns {Promise<IIVR>}
+     */
+    updateIVRSettings(params) {
+        return __awaiter(this, void 0, void 0, function* () {
+            yield this.httpClient.post(`/api/edit/update`, params);
+        });
+    }
+    /**
+     * Save IVR Settings (for IVR active edit id)
+     * @returns {Promise<IIVR>}
+     */
+    saveIVRSettings(id) {
+        return __awaiter(this, void 0, void 0, function* () {
+            yield this.httpClient.post(`/api/edit/save`, id, {
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+            });
+        });
+    }
+    /**
      * Delete IVR By Id
      * @param {string}
      */

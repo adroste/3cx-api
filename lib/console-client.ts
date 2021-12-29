@@ -1,6 +1,8 @@
+import {IIVR, IIvrSettings, IIvrUpdateParameters} from './digital-receptionist';
 import {IPlayFileParameters, IRecordFileParameters} from './file';
 import {IRecordingParameters, IRecordings} from './recording';
 
+import {IActiveObjectResponse} from './active-object-response';
 import {IBackup} from './backup/backup';
 import {ICallFlow} from './call-flow';
 import {ICallLogs} from './call-logs/call-logs';
@@ -12,7 +14,6 @@ import {IFaxExtension} from './fax-extension';
 import {IFxsDect} from './fxs-dect';
 import {IGroup} from './group';
 import {IHttpClient} from './http-client';
-import {IIVR} from './digital-receptionist';
 import {IInboundRule} from './inbound-rule';
 import {IListResponse} from './list-response';
 import {INewBackup} from './backup/newBackup';
@@ -188,6 +189,35 @@ export class ConsoleClient {
     public async getIVRList() {
         const response = await this.httpClient.get<IListResponse<IIVR>>(`/api/IVRList`);
         return response.data.list;
+    }
+
+    /**
+     * Get IVR Settings (for IVR id returned by getIVRList())
+     * @returns {Promise<IIVR>}
+     */
+    public async getIVRSettings(id: number) {
+        const response = await this.httpClient.post<IActiveObjectResponse<IIvrSettings>>(`/api/IVRList/set`, { Id: id });
+        return response.data;
+    }
+
+    /**
+     * Update IVR Settings (for IVR active edit id)
+     * @returns {Promise<IIVR>}
+     */
+    public async updateIVRSettings(params: IIvrUpdateParameters) {
+        await this.httpClient.post(`/api/edit/update`, params);
+    }
+
+    /**
+     * Save IVR Settings (for IVR active edit id)
+     * @returns {Promise<IIVR>}
+     */
+    public async saveIVRSettings(id: string) {
+        await this.httpClient.post(`/api/edit/save`, id, {
+            headers: {
+                'Content-Type': 'application/json'
+            },
+        });
     }
 
     /**

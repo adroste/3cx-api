@@ -1,5 +1,7 @@
+import { IIVR, IIvrSettings, IIvrUpdateParameters } from './digital-receptionist';
 import { IPlayFileParameters, IRecordFileParameters } from './file';
 import { IRecordingParameters, IRecordings } from './recording';
+import { IActiveObjectResponse } from './active-object-response';
 import { IBackup } from './backup/backup';
 import { ICallFlow } from './call-flow';
 import { ICallLogs } from './call-logs/call-logs';
@@ -11,7 +13,6 @@ import { IFaxExtension } from './fax-extension';
 import { IFxsDect } from './fxs-dect';
 import { IGroup } from './group';
 import { IHttpClient } from './http-client';
-import { IIVR } from './digital-receptionist';
 import { IInboundRule } from './inbound-rule';
 import { INewBackup } from './backup/newBackup';
 import { IOutboundRule } from './outbound-rule';
@@ -116,6 +117,21 @@ export declare class ConsoleClient {
      * @returns {Promise<IIVR>}
      */
     getIVRList(): Promise<IIVR[]>;
+    /**
+     * Get IVR Settings (for IVR id returned by getIVRList())
+     * @returns {Promise<IIVR>}
+     */
+    getIVRSettings(id: number): Promise<IActiveObjectResponse<IIvrSettings>>;
+    /**
+     * Update IVR Settings (for IVR active edit id)
+     * @returns {Promise<IIVR>}
+     */
+    updateIVRSettings(params: IIvrUpdateParameters): Promise<void>;
+    /**
+     * Save IVR Settings (for IVR active edit id)
+     * @returns {Promise<IIVR>}
+     */
+    saveIVRSettings(id: string): Promise<void>;
     /**
      * Delete IVR By Id
      * @param {string}
