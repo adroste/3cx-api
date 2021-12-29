@@ -1,6 +1,6 @@
 {
   "name": "@adroste/3cx-api",
-  "version": "0.36.2-dev.1",
+  "version": "0.36.2-dev.2",
   "description": "3CX Phone System API - Updated",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
