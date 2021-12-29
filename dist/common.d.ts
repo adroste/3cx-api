@@ -9,9 +9,9 @@ export interface IPath {
 export interface INameType {
     Name: string;
 }
-export interface IElementType {
-    type: string;
-    _value: string;
+export interface IElementType<T = string> {
+    type: number;
+    _value: T;
     disabled?: boolean;
     hide?: boolean;
 }
@@ -19,6 +19,7 @@ export interface IItemSetType<T = string> {
     possibleValues: T[];
     selected: T;
     translatable: boolean;
-    type: string;
+    type: number;
+    disabled?: boolean;
     hide?: boolean;
 }
