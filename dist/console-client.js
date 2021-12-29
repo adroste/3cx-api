@@ -367,5 +367,23 @@ class ConsoleClient {
             yield this.httpClient.post(`/api/CallFlowApps/delete`, { Ids: [id] });
         });
     }
+    /**
+     * POST Play a file
+     * @param {number}
+     */
+    playFile(params) {
+        return __awaiter(this, void 0, void 0, function* () {
+            yield this.httpClient.post(`/api/file/play`, params);
+        });
+    }
+    /**
+     * POST Record a file
+     * @param {number}
+     */
+    recordFile(params) {
+        return __awaiter(this, void 0, void 0, function* () {
+            yield this.httpClient.post(`/api/file/record`, params);
+        });
+    }
 }
 exports.ConsoleClient = ConsoleClient;

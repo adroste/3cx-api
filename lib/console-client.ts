@@ -1,3 +1,4 @@
+import {IPlayFileParameters, IRecordFileParameters} from './file';
 import {IRecordingParameters, IRecordings} from './recording';
 
 import {IBackup} from './backup/backup';
@@ -353,5 +354,21 @@ export class ConsoleClient {
      */
     public async deleteCallFlow(id: number) {
         await this.httpClient.post(`/api/CallFlowApps/delete`, {Ids: [id]});
+    }
+
+    /**
+     * POST Play a file
+     * @param {number}
+     */
+    public async playFile(params: IPlayFileParameters) {
+        await this.httpClient.post(`/api/file/play`, params);
+    }
+
+    /**
+     * POST Record a file
+     * @param {number}
+     */
+    public async recordFile(params: IRecordFileParameters) {
+        await this.httpClient.post(`/api/file/record`, params);
     }
 }

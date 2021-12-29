@@ -1,3 +1,4 @@
+import { IPlayFileParameters, IRecordFileParameters } from './file';
 import { IRecordingParameters, IRecordings } from './recording';
 import { IBackup } from './backup/backup';
 import { ICallFlow } from './call-flow';
@@ -203,4 +204,14 @@ export declare class ConsoleClient {
      * @param {number}
      */
     deleteCallFlow(id: number): Promise<void>;
+    /**
+     * POST Play a file
+     * @param {number}
+     */
+    playFile(params: IPlayFileParameters): Promise<void>;
+    /**
+     * POST Record a file
+     * @param {number}
+     */
+    recordFile(params: IRecordFileParameters): Promise<void>;
 }

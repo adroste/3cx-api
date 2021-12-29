@@ -28,6 +28,7 @@ __exportStar(require("./digital-receptionist"), exports);
 __exportStar(require("./extension"), exports);
 __exportStar(require("./fax-extension"), exports);
 __exportStar(require("./fax"), exports);
+__exportStar(require("./file"), exports);
 __exportStar(require("./fxs-dect"), exports);
 __exportStar(require("./group"), exports);
 __exportStar(require("./hotdesking"), exports);

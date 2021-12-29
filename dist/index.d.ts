@@ -15,6 +15,7 @@ export * from './digital-receptionist';
 export * from './extension';
 export * from './fax-extension';
 export * from './fax';
+export * from './file';
 export * from './fxs-dect';
 export * from './group';
 export * from './hotdesking';
