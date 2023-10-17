@@ -27,9 +27,19 @@ import {ITrunks} from './trunk';
 import {IUpdateParameters} from './updates/update-parameters';
 import {IUpdates} from './updates/updates';
 import {IUserInfo} from './userinfo';
+import {IActiveCall} from "./active-call";
 
 export class ConsoleClient {
     constructor(private readonly httpClient: IHttpClient) {
+    }
+
+    /**
+     * Get active calls
+     * @returns {Promise<IActiveCall[]>}
+     */
+    public async getActiveCallList() {
+        const response = await this.httpClient.get<IListResponse<IActiveCall>>('/api/ActiveCalls');
+        return response.data.list;
     }
 
     /**
